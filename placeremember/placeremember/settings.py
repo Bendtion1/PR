@@ -158,3 +158,17 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 LOGIN_REDIRECT_URL = "/storage"
 LOGOUT_REDIRECT_URL = "/"   
+
+# Map settings
+
+LOCATION_FIELD_PATH = STATIC_URL + "location_field"
+LOCATION_FIELD = {
+    "map.provider": "openstreetmap",
+    "provider.openstreetmap.max_zoom": 13,
+    "search.provider": "nominatim",
+}
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = '/storage'
+LOGOUT_REDIRECT_URL = "/"
