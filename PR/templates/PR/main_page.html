@@ -1,0 +1,30 @@
+{% extends 'sample.html' %}
+{% load static %}
+
+{% block title%}
+{{ title }}
+{% endblock%}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+    <div>
+        <h1>О проекте</h1>
+        <p>
+            Сохраняй свои воспоминания об интересный местах, в которых ты побывал!
+        <button class="btn btn-outline-dark my-2 my-sm-0"
+                onclick="document.location='{%url 'PR:stoargepage'%}'">
+            Перейти к своим впечатлениям
+        </button>
+    </div>
+{% else %}
+    <div>
+        <h1>О проекте</h1>
+        <p>
+            Сохраняй свои воспоминания об интересный местах, в которых ты побывал! Чтобы начать пользоваться сервисом
+            авторизируйся через VK и Google .
+        </p>
+        <button class="btn btn-outline-primary my-2 my-sm-0"    
+                            onclick="document.location='/login/vk-oauth2'">Войти c помощью VK</button>
+    </div>
+{% endif %}
+{% endblock %}
