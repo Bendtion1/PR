@@ -76,8 +76,20 @@ TEMPLATES = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.vk.VKOAuth2', 
+    'social_core.backends.google.GoogleOAuth2', 
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend', 
+)
+
 WSGI_APPLICATION = 'placeremember.wsgi.application'
 
+TEMPLATE_LOADERS = [
+    'django.template.loaders.filesystem.load_template_source',
+    'django.template.loaders.app_directories.load_template_source',
+    # 'django.template.loaders.eggs.load_template_source',
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -133,3 +145,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 SITE_ID = 1
+
+#vk
+SOCIAL_AUTH_VK_OAUTH2_KEY = "8184382"
+SOCIAL_AUTH_VK_OAUTH2_SECRET = "m25O18U69AfYPIvGjlJy"
+
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ["email"]
+SOCIAL_AUTH_VK_OAUTH2_EXTRA_DATA = ["photo_big"]
