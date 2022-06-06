@@ -1,0 +1,28 @@
+{% extends 'sample.html' %}
+{% load static %}
+
+{% block title%}
+{{ title }}
+{% endblock%}
+
+{% block form-media %}
+    {{ form.media }}
+{% endblock %}
+
+{% block content %}
+     <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="center-block">{{ form.non_field_errors }}</div>
+        {% for f in form %}
+            <div class="row">
+                <p>{{ f.errors }}</p>
+                <div>{{ f }}</div>
+            </div>
+        {% endfor %}
+         <br/>
+         <button  class="btn btn-outline-dark my-2 my-sm-0" type="submit">Добавить</button>
+         <button  class="btn btn-outline-warning my-2 my-sm-0"
+                  onclick="document.location='{%url 'PR:stoargepage'%}'">Отмена</button>
+    </form>
+{% endblock %}
